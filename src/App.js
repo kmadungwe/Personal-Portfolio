@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import PDF from './images/Resume(03-25-2021).pdf';
@@ -196,7 +196,7 @@ class PortfolioItem extends Component {
     this.setState({ portfolioItemClass: '' });
   }
   render() {
-    const { id, name, description, thumb_image_url, url } = this.props.item;
+    const { name, description, thumb_image_url, url } = this.props.item;
 
     return (
       <a href={url} target='_blank' className='projects-wrapper'>
