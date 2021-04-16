@@ -199,7 +199,12 @@ class PortfolioItem extends Component {
     const { name, description, thumb_image_url, url } = this.props.item;
 
     return (
-      <a href={url} target='_blank' className='projects-wrapper'>
+      <a
+        href={url}
+        target='_blank'
+        rel='noreferrer'
+        className='projects-wrapper'
+      >
         <div
           className='portfolio-item-wrapper'
           onMouseEnter={() => this.handleMouseEnter()}
