@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import PDF from './images/Resume(03-25-2021).pdf';
@@ -180,56 +180,40 @@ class MyWork extends Component {
   }
 }
 
-class PortfolioItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      portfolioItemClass: '',
-    };
-  }
+const PortfolioItem = (props) => {
+  const [portfolioItemClass, setPortfolioItemClass] = useState('');
+  const { name, description, thumb_image_url, url } = props.item;
 
-  handleMouseEnter() {
-    this.setState({ portfolioItemClass: 'image-blur' });
-  }
+  const handleMouseEnter = () => {
+    setPortfolioItemClass({ portfolioItemClass: 'image-blur' });
+  };
 
-  handMouseLeave() {
-    this.setState({ portfolioItemClass: '' });
-  }
-  render() {
-    const { name, description, thumb_image_url, url } = this.props.item;
+  const handMouseLeave = () => {
+    setPortfolioItemClass({ portfolioItemClass: '' });
+  };
 
-    return (
-      <a
-        href={url}
-        target='_blank'
-        rel='noreferrer'
-        className='projects-wrapper'
+  return (
+    <a href={url} target='_blank' rel='noreferrer' className='projects-wrapper'>
+      <div
+        className='portfolio-item-wrapper'
+        onMouseEnter={() => handleMouseEnter()}
+        onMouseLeave={() => handMouseLeave()}
       >
         <div
-          className='portfolio-item-wrapper'
-          onMouseEnter={() => this.handleMouseEnter()}
-          onMouseLeave={() => this.handMouseLeave()}
-        >
-          <div
-            className={
-              'portfolio-img-background ' + this.state.portfolioItemClass
-            }
-            style={{
-              backgroundImage: 'url(' + thumb_image_url + ')',
-            }}
-          />
+          className={'portfolio-img-background ' + portfolioItemClass}
+          style={{
+            backgroundImage: 'url(' + thumb_image_url + ')',
+          }}
+        />
 
-          <div className='img-text-wrapper'>
-            Click here to visit {name} code
-          </div>
-          <div className='descriptiveWords'>
-            <div className='subtitle pageHeaderSubtitle upperTitle'>{name}</div>
-            <div className='subtitle pageHeaderSubtitle tileDescription'>
-              {description}
-            </div>
+        <div className='img-text-wrapper'>Click here to visit {name} code</div>
+        <div className='descriptiveWords'>
+          <div className='subtitle pageHeaderSubtitle upperTitle'>{name}</div>
+          <div className='subtitle pageHeaderSubtitle tileDescription'>
+            {description}
           </div>
         </div>
-      </a>
-    );
-  }
-}
+      </div>
+    </a>
+  );
+};
