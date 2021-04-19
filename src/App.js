@@ -180,10 +180,8 @@ const PortfolioItem = (props) => {
 
         <div className='img-text-wrapper'>Click here to visit {name} code</div>
         <div className='descriptiveWords'>
-          <div className='subtitle pageHeaderSubtitle upperTitle'>{name}</div>
-          <div className='subtitle pageHeaderSubtitle tileDescription'>
-            {description}
-          </div>
+          <div className='subtitle  upperTitle'>{name}</div>
+          <div className='subtitle  tileDescription'>{description}</div>
         </div>
       </div>
     </a>
