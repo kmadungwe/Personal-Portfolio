@@ -54,14 +54,22 @@ const HomePageTitle = () => {
               Additionally, I participate weekly in multiple classes that assist
               me in becoming the developer I want to be. Please feel free to
               checkout my{' '}
-              <NavLink to={PDF} target='_blank'>
+              <NavLink
+                to={PDF}
+                target='_blank'
+                rel='noreferrer'
+                className='homePageLinks'
+              >
                 resume
               </NavLink>{' '}
               and{' '}
-              <NavLink to='/my-work' className='btn-black btnSmall btn'>
+              <NavLink to='/my-work' className='homePageLinks'>
                 projects.
               </NavLink>{' '}
-              <a href='mailto:katelynn.clark333@gmail.com?Subject=Hi Katey! Portfolio Website Inquiry'>
+              <a
+                href='mailto:katelynn.clark333@gmail.com?Subject=Hi Katey! Portfolio Website Inquiry'
+                className='homePageLinks'
+              >
                 Email me
               </a>{' '}
               if I can help you with anything!
@@ -139,8 +147,16 @@ function MyWork() {
               Over the past two years I have dedicated much of my time to
               developing. Here are some of the most recent developments I have
               created. They mainly focus on React, JavaScript, CSS, and JSX. If
-              you would prefer to just checkout my GitHub, here is the link to
-              my profile: https://github.com/kmadungwe.
+              you would prefer to just checkout my GitHub, click{' '}
+              <a
+                href='https://github.com/kmadungwe'
+                target='_blank'
+                className='githubLinkStyle'
+                rel='noreferrer'
+              >
+                here
+              </a>{' '}
+              for a link to my profile.
             </div>
           </div>
           <div className='ourWorkProjects izContainer'>

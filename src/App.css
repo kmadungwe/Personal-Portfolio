@@ -68,6 +68,17 @@
   }
 }
 
+.homePageLinks {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.homePageLinks:hover {
+  color: #a185ff;
+}
+
 /* .navLink {
   display: inline-block;
   margin-left: 16px;
@@ -194,6 +205,17 @@
   .my-work {
     margin-top: 25px;
   }
+}
+
+.githubLinkStyle {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: moccasin;
+  font-weight: 700;
+}
+
+.githubLinkStyle:hover {
+  color: black;
 }
 
 .pageHeaderContainer {
