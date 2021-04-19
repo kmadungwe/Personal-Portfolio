@@ -61,8 +61,10 @@ const HomePageTitle = () => {
               <NavLink to='/my-work' className='btn-black btnSmall btn'>
                 projects.
               </NavLink>{' '}
-              <a href='mailto:katelynn.clark333@gmail.com'>Email me</a> if I can
-              help you with anything!
+              <a href='mailto:katelynn.clark333@gmail.com?Subject=Hi Katey! Portfolio Website Inquiry'>
+                Email me
+              </a>{' '}
+              if I can help you with anything!
             </div>
           </div>
         </div>
@@ -95,7 +97,7 @@ const NavigationBar = () => {
 
               <a
                 className='btn-orange btnSmall btn'
-                href='mailto:katelynn.clark333@gmail.com'
+                href='mailto:katelynn.clark333@gmail.com?Subject=Hi Katey! Portfolio Website Inquiry'
               >
                 contact
               </a>
