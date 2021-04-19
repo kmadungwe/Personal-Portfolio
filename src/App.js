@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component, useState } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import PDF from './images/Resume(03-25-2021).pdf';
@@ -8,18 +8,20 @@ import axios from 'axios';
 function App() {
   return (
     <div className='App'>
-      <Router>
-        <div>
-          <NavigationBar />
-          <Switch>
-            <Route exact path='/' component={HomePageTitle} />
-            <Route path='/my-resume' />
-            <Route path='/my-work' component={MyWork} />
-            <Route path='/contact' />
-            {/* <Route component={NoMatch} /> */}
-          </Switch>
-        </div>
-      </Router>
+      <Suspense>
+        <Router>
+          <div>
+            <NavigationBar />
+            <Switch>
+              <Route exact path='/' component={HomePageTitle} />
+              <Route path='/my-resume' />
+              <Route path='/my-work' component={MyWork} />
+              <Route path='/contact' />
+              {/* <Route component={NoMatch} /> */}
+            </Switch>
+          </div>
+        </Router>
+      </Suspense>
     </div>
   );
 }
@@ -105,92 +107,54 @@ const NavigationBar = () => {
   );
 };
 
-class MyWork extends Component {
-  constructor() {
-    super();
+function MyWork() {
+  const [data, setData] = useState([]);
 
-    this.state = {
-      pageTitle: 'Welcome to my portfolio',
-      isLoading: false,
-      data: [],
-    };
-    this.handleFilter = this.handleFilter.bind(this);
-  }
-
-  handleFilter(filter) {
-    if (filter === 'CLEAR_FILTERS') {
-      this.getPortfolioItems();
-    } else {
-      this.getPortfolioItems(filter);
-    }
-  }
-
-  getPortfolioItems(filter = null) {
+  useEffect(() => {
     axios
       .get('https://kateyclark.devcamp.space/portfolio/portfolio_items')
       .then((response) => {
-        if (filter) {
-          this.setState({
-            data: response.data.portfolio_items.filter((item) => {
-              return item.category === filter;
-            }),
-          });
-        } else {
-          this.setState({
-            data: response.data.portfolio_items,
-          });
-        }
+        setData(response.data.portfolio_items);
       })
       .catch((error) => {
         console.log(error);
       });
-  }
+  }, [setData]);
 
-  portfolioItems() {
-    return this.state.data.map((item) => {
+  function portfolioItems() {
+    return data.map((item) => {
       return <PortfolioItem key={item.id} item={item} />;
     });
   }
 
-  componentDidMount() {
-    this.getPortfolioItems();
-  }
-
-  render() {
-    if (this.state.isLoading) {
-      return <div>Loading...</div>;
-    }
-    return (
-      <div className='my-work'>
-        <div className='mainContentBlock'>
-          <div className='pageHeader'>
-            <div className='pageHeaderContainer ourWorkLogo'>
-              <h1 className='pageHeaderTitle'>Projects</h1>
-              <div className='pageHeaderSubtitle'>A few of my projects</div>
-            </div>
-            <div className='ourWorkProjects izContainer'>
-              <div className='portfolio-items-wrapper'>
-                {this.portfolioItems()}
-              </div>
-            </div>
+  return (
+    <div className='my-work'>
+      <div className='mainContentBlock'>
+        <div className='pageHeader'>
+          <div className='pageHeaderContainer ourWorkLogo'>
+            <h1 className='pageHeaderTitle'>Projects</h1>
+            <div className='pageHeaderSubtitle'>A few of my projects</div>
+          </div>
+          <div className='ourWorkProjects izContainer'>
+            <div className='portfolio-items-wrapper'>{portfolioItems()}</div>
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const PortfolioItem = (props) => {
   const [portfolioItemClass, setPortfolioItemClass] = useState('');
   const { name, description, thumb_image_url, url } = props.item;
 
-  const handleMouseEnter = () => {
+  function handleMouseEnter() {
     setPortfolioItemClass({ portfolioItemClass: 'image-blur' });
-  };
+  }
 
-  const handMouseLeave = () => {
+  function handMouseLeave() {
     setPortfolioItemClass({ portfolioItemClass: '' });
-  };
+  }
 
   return (
     <a href={url} target='_blank' rel='noreferrer' className='projects-wrapper'>
