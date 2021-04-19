@@ -133,7 +133,13 @@ function MyWork() {
         <div className='pageHeader'>
           <div className='pageHeaderContainer ourWorkLogo'>
             <h1 className='pageHeaderTitle'>Projects</h1>
-            <div className='pageHeaderSubtitle'>A few of my projects</div>
+            <div className='pageHeaderSubtitle'>
+              Over the past two years I have dedicated much of my time to
+              developing. Here are some of the most recent developments I have
+              created. They mainly focus on React, JavaScript, CSS, and JSX. If
+              you would prefer to just checkout my GitHub, here is the link to
+              my profile: https://github.com/kmadungwe.
+            </div>
           </div>
           <div className='ourWorkProjects izContainer'>
             <div className='portfolio-items-wrapper'>{portfolioItems()}</div>

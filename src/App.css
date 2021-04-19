@@ -167,12 +167,9 @@
   color: white;
   text-transform: uppercase;
 } */
-/* .pageHeaderSubtitle {
-  max-width: 640px;
-  margin: 0 auto 64px;
-  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: calc(0.875rem + (17 - 14) * (100vw - 20rem) / (1440 - 320));
-} */
+.pageHeaderSubtitle {
+  max-width: 75%;
+}
 /* .hr {
   margin: 0 auto;
   width: 80px;
