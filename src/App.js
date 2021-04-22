@@ -38,22 +38,24 @@ const HomePageTitle = () => {
           </div>
           <div className='word-container'>
             <div className='hPTitleLeft'>
-              After taking a self-reliance course, interviewing developers, and
-              researching what it's truly like to be a developer, I realized
-              that becoming a developer is the best career choice for me. I
-              discovered that creating the logic for a website and then being
-              able to see how it turns out is one of my favorite things to do! I
-              love the challenge of development and that it pushes me to
-              understand and create more just from pure curiosity. Due to the
-              natural behavior I have of curiosity and understanding logic
-              pushes me to be become the best developer I can be, bringing me
-              personal and professional fulfillment. I am currently seeking a
-              position as a Front End Software React Developer where I can grow
-              to provide accomplishment to both myself and a company, using
-              tools I know such as React, ES6, HTML, CSS, and more.
-              Additionally, I participate weekly in multiple classes that assist
-              me in becoming the developer I want to be. Please feel free to
-              checkout my{' '}
+              Hi, I'm Katey! Software development is something I was curious
+              about for years, as it seemed like a challenging and rewarding
+              line of work. After interviewing and working alongside
+              professional developers, I realized that I wanted to pursue a
+              career in software development. After making the decision to take
+              the plunge into the world of software development, I discovered
+              that solving the creative and logical challenges for a website is
+              one of my favorite things to do! As someone who is curious by
+              nature, I love that there is always more to learn and understand
+              when creating software. As I've progressed in my learning and
+              sharpen my skills as a developer, I've felt increasing personal
+              and professional fulfillment. I currently participate in multiple
+              weekly classes that are helping me become the developer I want to
+              be. In addition to basic HTML, CSS, and JS, I've recently been
+              working with modern JS (ES6+) and modern React, including Hooks. I
+              am currently seeking a position as a Front End React Developer
+              where I can grow my skills and become a strong contributor for my
+              team Please feel free to checkout my{' '}
               <NavLink
                 to={PDF}
                 target='_blank'
