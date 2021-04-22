@@ -55,7 +55,7 @@ const HomePageTitle = () => {
               working with modern JS (ES6+) and modern React, including Hooks. I
               am currently seeking a position as a Front End React Developer
               where I can grow my skills and become a strong contributor for my
-              team Please feel free to checkout my{' '}
+              team. Please feel free to checkout my{' '}
               <NavLink
                 to={PDF}
                 target='_blank'
